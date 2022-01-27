@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidTest</string>
+    <string name="main_activity_title">Ny Times Most popular</string>
+    <string name="more">More</string>
+    <string name="search">Search</string>
+    <string name="internet_connectivity_required">Internet Connectivity Required!</string>
+    <string name="failed_to_parse_response">Failed to Parse response</string>
+    <string name="invalid_response">invalid response</string>
+</resources>

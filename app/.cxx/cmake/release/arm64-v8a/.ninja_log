@@ -1,0 +1,20 @@
+# ninja log v5
+0	5	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	7	0	clean	72e60f0ba1cfdca3
+1	17	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	7	0	clean	72e60f0ba1cfdca3
+0	8	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	5	0	clean	72e60f0ba1cfdca3
+0	8	0	clean	72e60f0ba1cfdca3
+0	6	0	clean	72e60f0ba1cfdca3
+0	8	0	clean	72e60f0ba1cfdca3
+0	8	0	clean	72e60f0ba1cfdca3
+0	7	0	clean	72e60f0ba1cfdca3
+1	711	1624515992	CMakeFiles/kitdemo-lib.dir/src/main/jni/kitdemo.cpp.o	9a7ff4f4c7b410f
+712	781	1624515992	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libkitdemo-lib.so	e9fd4491c7eec538
+0	11	0	clean	72e60f0ba1cfdca3

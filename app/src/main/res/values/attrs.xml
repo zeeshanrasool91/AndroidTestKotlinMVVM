@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TransparentParentLayout">
+        <attr name="tpl_opacity" format="float" />
+        <attr name="tpl_img_src" format="reference" />
+        <attr name="tpl_scale_type" format="enum">
+            <enum name="MATRIX" value="0" />
+            <enum name="FIT_XY" value="1" />
+            <enum name="FIT_START" value="2" />
+            <enum name="FIT_CENTER" value="3" />
+            <enum name="FIT_END" value="4" />
+            <enum name="CENTER" value="5" />
+            <enum name="CENTER_CROP" value="6" />
+            <enum name="CENTER_INSIDE" value="7" />
+
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ShowHidePasswordEditText">
+        <attr name="drawable_hide" format="integer"/>
+        <attr name="drawable_show" format="integer"/>
+        <attr name="tint_color" format="color"/>
+        <attr name="show_toggle" format="boolean"/>
+        <attr name="additionalTouchTargetSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClearAbleInputEditText">
+        <attr name="drawable_clear" format="integer"/>
+        <attr name="clear_tint_color" format="color"/>
+        <attr name="show_clear" format="boolean"/>
+        <attr name="additional_touch_area" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="LabelInfoView">
+        <attr name="label_info_title" format="string" />
+        <attr name="label_info_title_size" format="dimension" />
+        <attr name="label_info_second_title" format="string" />
+        <attr name="label_info_second_title_size" format="dimension" />
+        <attr name="show_divider" format="boolean"/>
+        <attr name="show_top_divider" format="boolean"/>
+        <attr name="hide_click_icon" format="boolean"/>
+        <attr name="hide_ripple_effect" format="boolean"/>
+        <attr name="label_color" format="color"/>
+        <attr name="second_label_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="DateTimePickerEditText">
+        <attr name="dateFormat" format="string"/>
+        <attr name="timeFormat" format="string"/>
+        <attr name="minDate" format="string"/>
+        <attr name="maxDate" format="string"/>
+        <attr name="is24HourView" format="boolean"/>
+        <attr name="dpTheme" format="reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TSProgressBar">
+        <attr name="anim_duration" format="integer" />
+        <attr name="outer_color" format="color" />
+        <attr name="inner_color" format="color" />
+        <attr name="thickness" format="dimension" />
+        <attr name="inner_padding" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MultiStateView">
+        <attr name="msv_loadingView" format="reference" />
+        <attr name="msv_emptyView" format="reference" />
+        <attr name="msv_errorView" format="reference" />
+        <attr name="msv_unknownErrorView" format="reference" />
+        <attr name="msv_viewState" format="enum">
+            <enum name="content" value="0" />
+            <enum name="error" value="1" />
+            <enum name="empty" value="2" />
+            <enum name="loading" value="3" />
+            <enum name="unknown_error" value="4" />
+        </attr>
+        <attr name="msv_animateViewChanges" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SimpleMultipleStateView">
+        <attr name="smsv_emptyView" format="reference"/>
+        <attr name="smsv_loadingView" format="reference"/>
+        <attr name="smsv_failView" format="reference"/>
+        <attr name="smsv_contentView" format="reference"/>
+        <attr name="smsv_viewState" format="enum">
+            <enum name="content" value="10001"/>
+            <enum name="loading" value="10002"/>
+            <enum name="empty" value="10003"/>
+            <enum name="fail" value="10004"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#F784BC</color>
+    <color name="purple_500">#EE0979</color>
+    <color name="purple_700">#E90666</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="border_color">#F2F2F2</color>
+    <color name="text_color_dark">#333333</color>
+    <color name="text_color_light">#848484</color>
+    <color name="main_color">#F32752</color>
+    <color name="window_background">#E5E5E5</color>
+    <color name="black_alpha_60">#99000000</color>
+    <color name="black_alpha_10">#66000000</color>
+    <color name="black_alpha">#26000000</color>
+    <color name="button_color">#F32752</color>
+    <color name="tab_disable">#979797</color>
+    <color name="tab_enable">#FFFFFF</color>
+    <color name="tab_checked">#018C4E</color>
+    <color name="tab_unchecked">#848484</color>
+    <color name="divider_line">#EFEEF5</color>
+    <color name="chips_filled">#1A848484</color>
+    <color name="md_grey_100">#F5F5F5</color>
+    <color name="settings_divider">#E5E5EA</color>
+    <color name="red">#FF0000</color>
+   <!-- #018C4E-->
+    <color name="palm_green">#30EB89</color>
+    <color name="palm_red">#F32752</color>
+    <color name="half_translucent_color">#40000000</color>
+    <color name="colorPrimary">#47E2BE</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorLightGrey">#D81B60</color>
+    <color name="colorDarkGrey">#6E6E6E</color>
+</resources>
