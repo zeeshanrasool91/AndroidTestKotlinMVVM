@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -16,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
  * Motivation: Create a recycler adapter in minimal lines of code yet
  * providing high customisation and complete control
  */
-
+//https://blog.devgenius.io/android-generic-recyclerview-adapter-67eb8f826cad
 open class RecyclerAdapterUtil<T>(
     val context: Context,
     //This list will serve as the main data list for the Recycler Adapter
@@ -189,7 +190,6 @@ open class RecyclerAdapterUtil<T>(
     fun addItems(itemList: ArrayList<T>) {
         this.itemList.addAll(itemList)
     }
-
 
 
 }

@@ -1,27 +1,25 @@
 package ae.android.test.networking.response
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class MainResponse(
 
 
-    @SerializedName("status")
-    @Expose
+    @JsonProperty("status")
     val status: String,
 
-    @SerializedName("copyright")
-    @Expose
+    @JsonProperty("copyright")
     private val copyright: String,
 
-    @SerializedName("num_results")
-    @Expose
+    @JsonProperty("num_results")
     private val numResults: String,
 
-    @SerializedName("results")
-    @Expose
+    @JsonProperty("results")
     val results: MutableList<MostPopularResponse>
 
 )

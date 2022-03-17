@@ -7,6 +7,7 @@ import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.enums.ErrorType
 import ae.android.test.networking.response.ErrorResponse
 import ae.android.test.utils.getObject
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,6 +18,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.jackson.JacksonConverterFactory
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -31,6 +33,7 @@ object NetController {
                 mRetrofit = Retrofit.Builder()
                     .baseUrl(AppConstants.WEB_URL)
                     .client(httpClient)
+                    .addConverterFactory(JacksonConverterFactory.create(mapper))
                     .addConverterFactory(GsonConverterFactory.create(gsonBuilder))
                     .build()
             }
@@ -65,6 +68,13 @@ object NetController {
                 .setPrettyPrinting()
                 .setLenient()
                 .create()
+        }
+
+    private val mapper: ObjectMapper
+        get() {
+            val mapper = ObjectMapper()
+            //mapper.propertyNamingStrategy = PropertyNamingStrategy.KEBAB_CASE
+            return mapper
         }
 
 

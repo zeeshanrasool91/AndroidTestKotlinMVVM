@@ -12,6 +12,7 @@ import ae.android.test.utils.hide
 import ae.android.test.utils.show
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -36,11 +37,12 @@ class MainActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
         prepareToolbar()
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.callListApi()
         viewModel.dataToView.observe(this) { response ->
             when (response) {
                 is ResultWrapper.Exception -> {
+                    response.responseExceptionBody.printStackTrace()
                     binding.progressBar.visibility = View.GONE
                 }
                 is ResultWrapper.Success -> {
@@ -48,6 +50,9 @@ class MainActivity : BaseActivity() {
                     createAdapter(response.responseBody.results)
                 }
                 is ResultWrapper.Failed -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+                else -> {
                     binding.progressBar.visibility = View.GONE
                 }
             }

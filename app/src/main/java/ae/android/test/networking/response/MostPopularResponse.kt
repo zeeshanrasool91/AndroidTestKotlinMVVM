@@ -1,22 +1,19 @@
 package ae.android.test.networking.response
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class MostPopularResponse(
-    @SerializedName("title")
-    @Expose
+    @JsonProperty("title")
     val title: String,
 
-    @SerializedName("abstract")
-    @Expose
+    @JsonProperty("abstract")
     val _abstract: String,
 
-    @SerializedName("published_date")
-    @Expose
+    @JsonProperty("published_date")
     val publishedDate: String?,
 
-    @SerializedName("source")
-    @Expose
+    @JsonProperty("source")
     val source: String
 )

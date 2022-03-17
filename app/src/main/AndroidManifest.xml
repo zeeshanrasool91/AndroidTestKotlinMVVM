@@ -20,7 +20,8 @@
         <activity
             android:name="ae.android.test.ui.activities.MainActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AndroidTest">
+            android:theme="@style/Theme.AndroidTest"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
