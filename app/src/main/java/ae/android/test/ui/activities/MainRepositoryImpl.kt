@@ -12,7 +12,7 @@ class MainRepositoryImpl (private val service: ApiMethods, private val dispatche
     MainRepository {
     override suspend fun getMostPopularList(): ResultWrapper<MainResponse> {
         return NetController.callApi(dispatcher) {
-            service.getMostPopularList(1,AppConstants.API_KEY)
+            service.getMostPopularList(period = AppConstants.PERIOD, apiKey = AppConstants.API_KEY)
         }
     }
 

@@ -92,15 +92,7 @@ object NetController {
         call: suspend () -> Response<T>
     ): ResultWrapper<T> {
         return withContext(dispatcher) {
-            val result: ResultWrapper<T> = safeApiResult(call)
-            when (result) {
-                is ResultWrapper.Success -> result.responseBody
-                is ResultWrapper.Exception -> {
-                    result.responseExceptionBody
-                }
-                is ResultWrapper.Failed -> result.responseErrorBody
-            }
-            result
+            safeApiResult(call)
         }
 
     }

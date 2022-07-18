@@ -1,1 +1,0 @@
-/Users/zeeshanrasool/IndexProjects/tawajud-android/app/build/intermediates/cmake/release/obj/armeabi-v7a

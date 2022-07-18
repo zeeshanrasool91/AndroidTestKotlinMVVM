@@ -1,18 +1,15 @@
 package ae.android.test.ui.activities
 
-import aae.android.test.R
-import aae.android.test.databinding.ActivityMainBinding
-import aae.android.test.databinding.ItemMostPopularBinding
+import ae.android.test.R
 import ae.android.test.base.BaseActivity
 import ae.android.test.base.adapter.RecyclerAdapterUtil
+import ae.android.test.databinding.ActivityMainBinding
+import ae.android.test.databinding.ItemMostPopularBinding
 import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.response.MostPopularResponse
-import ae.android.test.utils.gone
 import ae.android.test.utils.hide
 import ae.android.test.utils.show
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -97,7 +94,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }

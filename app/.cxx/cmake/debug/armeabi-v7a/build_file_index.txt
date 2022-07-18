@@ -1,1 +1,0 @@
-/Users/zeeshanrasool/IndexProjects/tawajud-android/app/CMakeLists.txt

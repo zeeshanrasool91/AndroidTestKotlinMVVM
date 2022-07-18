@@ -7,5 +7,6 @@ object AppConstants {
     const val NOT_CONNECT = "NOT_CONNECT"
     const val WEB_URL = "https://api.nytimes.com/"
     const val API_KEY = "0qMYNlprynR5Dn3npi0HKGFAzonvfgL8"
+    const val PERIOD = 1
 
 }

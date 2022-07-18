@@ -1,6 +1,6 @@
 package ae.android.test.ui.activities
 
-import aae.android.test.R
+import ae.android.test.R
 import ae.android.test.MyApp
 import ae.android.test.base.BaseViewModel
 import ae.android.test.networking.NetController
