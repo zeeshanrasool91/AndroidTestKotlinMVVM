@@ -1,84 +1,21 @@
 package ae.android.test.networking
 
 
-import ae.android.test.base.AppConstants
-import ae.android.test.networking.api.ApiMethods
 import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.enums.ErrorType
 import ae.android.test.networking.response.ErrorResponse
 import ae.android.test.utils.getObject
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.jackson.JacksonConverterFactory
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 
 object NetController {
-    private lateinit var mRetrofit: Retrofit
-    private lateinit var mApiMethods: ApiMethods
-
-    private val retrofit: Retrofit
-        get() {
-            if (!::mRetrofit.isInitialized) {
-                mRetrofit = Retrofit.Builder()
-                    .baseUrl(AppConstants.WEB_URL)
-                    .client(httpClient)
-                    .addConverterFactory(JacksonConverterFactory.create(mapper))
-                    .addConverterFactory(GsonConverterFactory.create(gsonBuilder))
-                    .build()
-            }
-            return mRetrofit
-        }
-
-    // Time out Issue to be Resolved
-    private val httpClient: OkHttpClient
-        get() {
-            val builder = OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .followRedirects(true)
-                .followSslRedirects(true)
-            return builder.build()
-        }
-
-
-    val apiMethods: ApiMethods
-        get() {
-            if (!::mApiMethods.isInitialized) {
-                mApiMethods = retrofit.create(ApiMethods::class.java)
-            }
-            return mApiMethods
-        }
-    private val gsonBuilder: Gson
-        get() {
-            return GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .setPrettyPrinting()
-                .setLenient()
-                .create()
-        }
-
-    private val mapper: ObjectMapper
-        get() {
-            val mapper = ObjectMapper()
-            //mapper.propertyNamingStrategy = PropertyNamingStrategy.KEBAB_CASE
-            return mapper
-        }
-
-
     val gson: Gson
         get() = GsonBuilder()
             .excludeFieldsWithoutExposeAnnotation()

@@ -2,11 +2,6 @@
 buildscript {
     ext.kotlin_version = "1.6.10"
     ext.kotlin_version_std = '1.7.10'
-    ext.koin_version_android = "3.1.5"
-    ext.koin_version_view_model = "2.2.3"
-    ext.koin_version_core = '3.2.0'
-    ext.koin_version_androidx_scope = "2.2.3"
-    ext.koin_version_androidx_ext = "2.2.3"
 
     ext {
         minSdkVersion = 21
@@ -32,6 +27,7 @@ buildscript {
         def nav_version = '2.4.1'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         classpath "com.google.android.gms:oss-licenses-plugin:0.10.5"
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
     }
 }
 

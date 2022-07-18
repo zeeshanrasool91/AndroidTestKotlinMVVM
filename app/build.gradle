@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -77,8 +78,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.6'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.8'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.8'
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
@@ -89,10 +90,10 @@ dependencies {
     ext.anko_version='0.10.8'
     // Anko Commons
     //implementation "org.jetbrains.anko:anko-commons:$anko_version"
-    //koin dependencies
-    implementation "io.insert-koin:koin-android:$koin_version_core"
-    implementation "io.insert-koin:koin-core:$koin_version_core"
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //hilt integration
+    implementation 'com.google.dagger:hilt-android:2.42'
+    kapt 'com.google.dagger:hilt-android-compiler:2.42'
 }
