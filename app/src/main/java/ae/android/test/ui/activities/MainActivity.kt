@@ -1,22 +1,30 @@
 package ae.android.test.ui.activities
 
-import ae.android.test.R
+import aae.android.test.R
+import aae.android.test.databinding.ActivityMainBinding
+import aae.android.test.databinding.ItemMostPopularBinding
 import ae.android.test.base.BaseActivity
 import ae.android.test.base.adapter.RecyclerAdapterUtil
-import ae.android.test.databinding.ActivityMainBinding
-import ae.android.test.databinding.ItemMostPopularBinding
 import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.response.MostPopularResponse
+import ae.android.test.utils.gone
 import ae.android.test.utils.hide
 import ae.android.test.utils.show
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
 class MainActivity : BaseActivity() {
@@ -36,21 +44,25 @@ class MainActivity : BaseActivity() {
         prepareToolbar()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.callListApi()
-        viewModel.dataToView.observe(this) { response ->
-            when (response) {
-                is ResultWrapper.Exception -> {
-                    response.responseExceptionBody.printStackTrace()
-                    binding.progressBar.visibility = View.GONE
-                }
-                is ResultWrapper.Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    createAdapter(response.responseBody.results)
-                }
-                is ResultWrapper.Failed -> {
-                    binding.progressBar.visibility = View.GONE
-                }
-                else -> {
-                    binding.progressBar.visibility = View.GONE
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.dataToView.collectLatest { response ->
+                    when (response) {
+                        is ResultWrapper.Exception -> {
+                            response.responseExceptionBody.printStackTrace()
+                            binding.progressBar.visibility = View.GONE
+                        }
+                        is ResultWrapper.Success -> {
+                            binding.progressBar.visibility = View.GONE
+                            createAdapter(response.responseBody.results)
+                        }
+                        is ResultWrapper.Failed -> {
+                            response.responseErrorBody?.let {
+                                binding.progressBar.visibility = View.GONE
+                            }
+                        }
+                    }
                 }
             }
         }

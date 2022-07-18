@@ -1,6 +1,6 @@
 package ae.android.test.base
 
-import ae.android.test.R
+import aae.android.test.R
 import android.content.IntentFilter
 import android.os.Bundle
 import android.text.TextUtils

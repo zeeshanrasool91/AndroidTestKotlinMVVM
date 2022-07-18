@@ -2,28 +2,18 @@ package ae.android.test.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 
-open class BaseViewModel<T> : ViewModel() {
+open class BaseViewModel : ViewModel() {
 
-    internal var job: Job? = null
-    private lateinit var resultWrapper: SingleLiveEvent<T>
-    val dataToView: SingleLiveEvent<T>
-        get() {
-            if (!::resultWrapper.isInitialized) {
-                resultWrapper = SingleLiveEvent<T>()
-            }
-            return resultWrapper
-        }
+    private var job: Job? = null
 
-    private lateinit var loaderWrapper: SingleLiveEvent<Boolean>
-    val loader: SingleLiveEvent<Boolean>
-        get() {
-            if (!::loaderWrapper.isInitialized) {
-                loaderWrapper = SingleLiveEvent()
-            }
-            return loaderWrapper
-        }
+    protected val mutableDataFlow: MutableStateFlow<Any> =
+        MutableStateFlow(Any::class.java)
+
+    val dataToView: StateFlow<Any> = mutableDataFlow
 
     override fun onCleared() {
         super.onCleared()

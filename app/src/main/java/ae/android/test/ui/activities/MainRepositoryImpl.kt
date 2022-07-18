@@ -7,12 +7,20 @@ import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.response.MainResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
-class MainRepositoryImpl (private val service: ApiMethods, private val dispatcher: CoroutineDispatcher = Dispatchers.Main) :
+class MainRepositoryImpl(
+    private val service: ApiMethods,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+) :
     MainRepository {
-    override suspend fun getMostPopularList(): ResultWrapper<MainResponse> {
-        return NetController.callApi(dispatcher) {
-            service.getMostPopularList(period = AppConstants.PERIOD, apiKey = AppConstants.API_KEY)
+    override fun getMostPopularList(): Flow<ResultWrapper<MainResponse>> {
+        return flow {
+            val mainResponse = NetController.callApi(dispatcher) {
+                service.getMostPopularList(AppConstants.PERIOD, AppConstants.API_KEY)
+            }
+            emit(mainResponse)
         }
     }
 
