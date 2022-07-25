@@ -3,7 +3,7 @@ package ae.android.test.utils
 import android.graphics.*
 import android.graphics.drawable.Drawable
 
-class ProgressDrawable(private val mForeground: Int, private val mBackground: Int) : Drawable() {
+class ProgressDrawable(var mForeground: Int, private val mBackground: Int) : Drawable() {
     private val mPaint = Paint()
     private val mSegment = RectF()
     override fun onLevelChange(level: Int): Boolean {

@@ -50,9 +50,8 @@ class MainActivity : BaseActivity() {
         prepareToolbar()
         //viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.callListApi()
-        binding.progressBar.progressDrawable =
-            ProgressDrawable(ContextCompat.getColor(this, R.color.red), ContextCompat.getColor(this, R.color.border_color))
-        val intervalTime = 2000L
+        //binding.progressBar.progressDrawable = ProgressDrawable(ContextCompat.getColor(this, R.color.red), ContextCompat.getColor(this, R.color.border_color))
+        /*val intervalTime = 2000L
         var progress = 0
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(object : Runnable {
@@ -66,7 +65,7 @@ class MainActivity : BaseActivity() {
                 binding.progressBar.setProgress(progress,true)
                 handler.postDelayed(this, intervalTime)
             }
-        }, intervalTime)
+        }, intervalTime)*/
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
