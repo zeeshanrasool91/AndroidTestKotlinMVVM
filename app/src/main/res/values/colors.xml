@@ -34,4 +34,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorLightGrey">#D81B60</color>
     <color name="colorDarkGrey">#6E6E6E</color>
+    <color name="pg_red">#FE6565</color>
+    <color name="pg_orange">#F6A507</color>
+    <color name="pg_green">#31BB98</color>
+    <color name="pg_full">#018C4E</color>
 </resources>

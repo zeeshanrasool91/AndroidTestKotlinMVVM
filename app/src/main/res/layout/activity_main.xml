@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recyclerView" />-->
-    <ae.android.test.utils.YoutubeProgressBar
+    <ae.android.test.utils.SegmentedProgressBar
         android:id="@+id/progressBar"
         android:layout_width="0dp"
         android:layout_height="5dp"
