@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
  */
 //https://blog.devgenius.io/android-generic-recyclerview-adapter-67eb8f826cad
 open class RecyclerAdapterUtil<T>(
-    val context: Context,
+    private val context: Context,
     //This list will serve as the main data list for the Recycler Adapter
     var itemList: MutableList<T>,
     //The id of layout resource that is to be inflated when onCreateViewHolder is called
