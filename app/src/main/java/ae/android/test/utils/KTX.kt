@@ -1,6 +1,7 @@
 package ae.android.test.utils
 
 import ae.android.test.networking.NetController
+import android.content.res.Resources
 import android.view.View
 import com.google.gson.Gson
 
@@ -34,3 +35,8 @@ fun View.hide() {
 fun View.show() {
     this.visibility=View.VISIBLE
 }
+
+val Int.dp: Int
+    get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+val Int.px: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()

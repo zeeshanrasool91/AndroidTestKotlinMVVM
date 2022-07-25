@@ -8,9 +8,13 @@ import ae.android.test.databinding.ActivityMainBinding
 import ae.android.test.databinding.ItemMostPopularBinding
 import ae.android.test.networking.api.ResultWrapper
 import ae.android.test.networking.response.MostPopularResponse
+import ae.android.test.utils.ProgressDrawable
 import ae.android.test.utils.hide
 import ae.android.test.utils.show
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -46,6 +50,23 @@ class MainActivity : BaseActivity() {
         prepareToolbar()
         //viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.callListApi()
+        binding.progressBar.progressDrawable =
+            ProgressDrawable(ContextCompat.getColor(this, R.color.red), ContextCompat.getColor(this, R.color.border_color))
+        val intervalTime = 2000L
+        var progress = 0
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                if (progress == 100) {
+                    progress = 0
+                    binding.progressBar.setProgress(progress,true)
+                }
+                progress += 25
+                Log.d(TAG, "run: $progress")
+                binding.progressBar.setProgress(progress,true)
+                handler.postDelayed(this, intervalTime)
+            }
+        }, intervalTime)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -53,15 +74,15 @@ class MainActivity : BaseActivity() {
                     when (response) {
                         is ResultWrapper.Exception -> {
                             response.responseExceptionBody.printStackTrace()
-                            binding.progressBar.visibility = View.GONE
+                            //binding.progressBar.visibility = View.GONE
                         }
                         is ResultWrapper.Success -> {
-                            binding.progressBar.visibility = View.GONE
+                            //binding.progressBar.visibility = View.GONE
                             createAdapter(response.responseBody.results)
                         }
                         is ResultWrapper.Failed -> {
                             response.responseErrorBody?.let {
-                                binding.progressBar.visibility = View.GONE
+                                //binding.progressBar.visibility = View.GONE
                             }
                         }
                     }
